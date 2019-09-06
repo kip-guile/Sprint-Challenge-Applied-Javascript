@@ -20,12 +20,8 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response => { // response is what the promise resolved to (what it looks is up to axios)
-    console.log(response.data);
-    let articleArr = []
   for (let key in response.data){
-      console.log(response.data[key]);
       for (let key2 in response.data[key]){
-          console.log(response.data[key][key2]);
           response.data[key][key2].forEach(element => {
               cardsContainer.appendChild(cardCreator(element));
           });
