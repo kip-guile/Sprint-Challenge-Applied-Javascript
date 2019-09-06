@@ -10,15 +10,11 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => { // response is what the promise resolved to (what it looks is up to axios)
-        // debugger
-        console.log(response.data);
         for (let topic in response.data){
-            console.log(response.data[topic]);
             response.data[topic].forEach(element => {
                 topics.appendChild(tabDivCreator(element));
             });
-        }
-        
+        } 
     })
     .catch(error => { // error is what the promise rejected to (what it looks like depends on axios)
       document.body.innerText = error.message;
